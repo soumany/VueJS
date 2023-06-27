@@ -20,12 +20,13 @@
         <p v-html="websiteTag"></p>
 
         <h1>Events</h1>
-        <button v-on:click = "add(1)">Add a Year</button>
+        <!-- @ is the shortcut of v-on -->
+        <button @click = "add(1)">Add a Year</button>
         <button v-on:click = "subtract(1)">Substract a Year</button>
-        <button v-on:dblclick = "add(10)">Add 10 Year</button>
+        <button @dblclick = "add(10)">Add 10 Year</button>
         <button v-on:dblclick = "subtract(10)">Subtract 10 Year</button>
         <p>Age: {{age}}</p>
-        <div id="canvas"></div>
+        <div id="canvas" v-on:mousemove="updateXY">{{x}},{{y}}</div>
     </div>
     
 
