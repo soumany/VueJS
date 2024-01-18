@@ -9,7 +9,11 @@
 <body>
 
     <div id="app">
-        {{greeting}}
+        <p>
+            <input type="text" v-model="greeting" name="" id="">
+        </p>
+        <p>{{greeting}} ({{greeting.length}})</p>
+        
     </div>
         
     <script>    
@@ -18,7 +22,13 @@
                 return {
                     greeting: 'Hello World'
                 };
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.greeting = 'Changed';
+                })
             }
+
         }).mount('#app');
     </script>
     
