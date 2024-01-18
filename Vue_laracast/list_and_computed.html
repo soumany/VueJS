@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists and Computed properties</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full grid place-items-center">
+    <div id="app">
+        <section>
+            <h2>Assignment</h2>
+
+            <ul>
+                <li>Finish project <input type="checkbox"></li>
+                <li>Read chapter 4 <input type="checkbox"></li>
+                <li>Turn in homework <input type="checkbox"></li>
+            </ul>
+        </section>
+    </div>
+
+
+    <script>
+        Vue.createApp({
+            data() {
+
+            }
+        }).mount('#app')
+    </script>
+    
+</body>
+</html>
