@@ -7,13 +7,7 @@ export default {
                 <span>({{assignments.length}})</span>
             </h2>
 
-            <div class="flex gap-2">
-                <button @click="currentTag = tag" v-for="tag in tags" class="border rounded px-1 py-px text-xs"
-                :class=" {
-                    'border-blue-500 text-blue-500': tag === currentTag
-                }"
-                >{{ tag }} </button>
-            </div>
+            
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
                 <assignment 
