@@ -3,6 +3,7 @@ export const apiMixin = {
         return {
             apiData: [],
             loading : true,
+            selectedValue: '-1',
         };
     },
     mounted() {

@@ -4,10 +4,50 @@
   import { apiMixin } from '../mixins/apiMixin.js';
   export default {
     mixins:[apiMixin],
+
+    computed: {
+    // Parse the selected value to an integer
+    selectedCount() {
+      return parseInt(this.selectedValue);
+    },
+    // Return the first 'selectedCount' items from apiData
+    filteredData() {
+      if (this.selectedCount === -1) {
+        return this.apiData;
+      } else {
+        return this.apiData.slice(0, this.selectedCount);
+      }
+    },
+  },
+    watch: {
+      selectedValue() {
+        // Update the filtered data whenever the selected value changes
+        this.$nextTick(() => {
+          this.loading = false; // Set loading to false to display the filtered data
+        });
+      },
+    },
+    mounted() {
+      this.fetchData();
+    },
   };
 </script>
 
 <template>
+  <div>
+    <p>Select</p>
+    <select v-model="selectedValue" id="id_name" name="name">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="-1">All</option>
+
+      <!-- Add more options as needed -->
+    </select>
+  </div>
   <div v-if="!loading">
     <table>
       <thead>
@@ -20,7 +60,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="data in apiData" :key="data.id">
+        <tr v-for="data in filteredData" :key="data.id">
           <td>{{ data.id }}</td>
           <td>{{ data.title}}</td>
           <td><img :src="data.image" alt="Image"></td>
