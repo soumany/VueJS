@@ -7,5 +7,21 @@ export default {
             }"
             >{{ tag }} </button>
         </div>
-    `
+    `,
+
+    props: {
+        initialTags: Array
+    },
+
+    data () {
+        return {
+            currentTag: 'all'
+        }
+    }
+
+    computed: {
+        tags() {
+            return ['all', ...new Set(this.initialTags)];
+        }
+    }
 }
